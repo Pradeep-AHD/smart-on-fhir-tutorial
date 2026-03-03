@@ -65,7 +65,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          p.tpt =tpt;
+          p.tpt = getQuantityValueAndUnit(tpt[0]);
           ret.resolve(p);
         });
       } else {
