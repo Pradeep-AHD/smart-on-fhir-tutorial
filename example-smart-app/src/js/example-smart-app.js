@@ -16,7 +16,7 @@
                     query: {
                       code: {
                         $or: ['http://loinc.org|8302-2', // body height
-                           //   'http://loinc.org|8462-4',
+                              'http://loinc.org|8310-5', // temperature
                             //  'http://loinc.org|8480-6', 
                               'http://loinc.org|2085-9', //HDL
                               'http://loinc.org|2089-1', //LDL
@@ -46,6 +46,7 @@
           var diastolicbp = getBloodPressureValue(byCodes('85354-9'),'8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
+          var tpt = byCodes('8310-5');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -64,7 +65,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-
+          p.tpt =tpt;
           ret.resolve(p);
         });
       } else {
@@ -88,6 +89,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      tpt: {value: ''},
     };
   }
 
